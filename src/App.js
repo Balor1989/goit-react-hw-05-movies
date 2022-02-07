@@ -9,7 +9,7 @@ function App() {
     <section>
       <Navigation />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route path="/movies" element={<HTag title="Search movies" />} />
       </Routes>
     </section>
