@@ -6,13 +6,10 @@ const Navigation = () => {
     <header className={s.header}>
       <nav>
         <NavLink exact to="/" className={s.link}>
-          Main page
+          Home
         </NavLink>
-        <NavLink to="/second" className={s.link}>
-          Second page
-        </NavLink>
-        <NavLink to="/third" className={s.link}>
-          Third page
+        <NavLink to="/movies" className={s.link}>
+          Movies
         </NavLink>
       </nav>
     </header>
