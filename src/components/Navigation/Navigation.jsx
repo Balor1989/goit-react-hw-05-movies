@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
     <header className={s.header}>
       <nav>
-        <NavLink exact to="/" className={s.link}>
+        <NavLink to="/" className={s.link}>
           Home
         </NavLink>
         <NavLink to="/movies" className={s.link}>
