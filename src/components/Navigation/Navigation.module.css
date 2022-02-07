@@ -1,0 +1,16 @@
+.header {
+  padding: 30px 0;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(32, 31, 31);
+}
+.activeLink {
+  composes: link;
+  background-color: aliceblue;
+}
