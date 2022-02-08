@@ -2,6 +2,7 @@ import './App.css';
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import { ToastContainer } from 'react-toastify';
 import HTag from './components/HTag';
 import Cast from './components/Cast/Cast';
 
@@ -22,6 +23,7 @@ const MoviesPage = lazy(() =>
 function App() {
   return (
     <section>
+      <ToastContainer />
       <Navigation />
       <Suspense fallback={<h1>Loading...</h1>}>
         <Routes>
