@@ -33,8 +33,12 @@ const MovieDetailsPage = () => {
           Go Back
         </button>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-          alt=""
+          src={
+            movieDetails.poster_path
+              ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`
+              : `https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496_1280.png`
+          }
+          alt={movieDetails.original_title}
         />
         <div>
           <div>
