@@ -11,8 +11,6 @@ const MovieDetailsPage = () => {
     fetchMovieDetails(id).then(setMovieDetails);
   }, [id]);
 
-  console.log(movieDetails);
-
   return (
     movieDetails && (
       <>

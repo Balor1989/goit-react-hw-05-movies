@@ -4,7 +4,7 @@ import s from './MoviesPage.module.css';
 const MoviesPage = () => {
   return (
     <section className={s.moviePage}>
-      <HTag title="Search movies" />;
+      <HTag title="Search movies" />
     </section>
   );
 };
