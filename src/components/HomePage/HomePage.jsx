@@ -20,7 +20,7 @@ const HomePage = () => {
               <Link to={`/movies/${movie.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt="{movie.title}"
+                  alt={movie.title}
                   width="100px"
                 />
                 <h3 className={s.movieTitle}>{movie.title}</h3>
