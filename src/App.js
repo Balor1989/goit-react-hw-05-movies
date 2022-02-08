@@ -4,18 +4,30 @@ import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HTag from './components/HTag';
 
-const HomePage = lazy(() => import('./components/HomePage/HomePage.jsx'));
-const MovieDetailsPage = lazy(() =>
-  import('./components/MovieDetailsPage/MovieDetailsPage.jsx'),
+const HomePage = lazy(() =>
+  import(
+    './components/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */
+  ),
 );
-const Cast = lazy(() => import('./components/Cast/Cast.jsx'));
-const MoviesPage = lazy(() => import('./components/MoviesPage/MoviesPage.jsx'));
+const MovieDetailsPage = lazy(() =>
+  import(
+    './components/MovieDetailsPage/MovieDetailsPage.jsx' /* webpackChunkName: "movies-detail" */
+  ),
+);
+const Cast = lazy(() =>
+  import('./components/Cast/Cast.jsx' /* webpackChunkName: "cast" */),
+);
+const MoviesPage = lazy(() =>
+  import(
+    './components/MoviesPage/MoviesPage.jsx' /* webpackChunkName: "movies-page" */
+  ),
+);
 
 function App() {
   return (
     <section>
       <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<h1>Loading...</h1>}>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
