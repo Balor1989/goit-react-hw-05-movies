@@ -12,7 +12,13 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/movies" element={<HTag title="Search movies" />} />
-        <Route path="/movies/:id" element={<MovieDetailsPage />} />
+        <Route path="/movies/:id" element={<MovieDetailsPage />}>
+          <Route path="/movies/:id/cast" element={<HTag title="Cast" />} />
+          <Route
+            path="/movies/:id/reviews"
+            element={<HTag title="Reviews" />}
+          />
+        </Route>
       </Routes>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../services/fetchMovies';
 import HTag from '../HTag';
@@ -12,14 +12,39 @@ const MovieDetailsPage = () => {
   }, [id]);
 
   console.log(movieDetails);
-  const { poster_path } = movieDetails;
 
   return (
     movieDetails && (
       <>
-        {' '}
-        <button>button</button>
-        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
+        <button>Go Back</button>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+          alt=""
+        />
+        <div>
+          <div>
+            <HTag title={movieDetails.original_title} />
+            <p>{`User Score: ${movieDetails.vote_average * 10}%`}</p>
+            <HTag title="Overview" />
+            <p>{movieDetails.overview}</p>
+            <p>
+              {movieDetails.genres.map(genre => (
+                <span key={genre.id}>{genre.name}</span>
+              ))}
+            </p>
+          </div>
+          <div>
+            <h3>Additional information</h3>
+            <ul>
+              <li>
+                <Link to="cast">Cast</Link>
+              </li>
+              <li>
+                <Link to="reviews">Reviews</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </>
     )
   );
