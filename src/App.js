@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import HTag from './components/HTag';
+import MovieDetailsPage from './components/MovieDetailsPage';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/movies" element={<HTag title="Search movies" />} />
-        <Route path="/movies/:id" element={<HTag title="Film details" />} />
+        <Route path="/movies/:id" element={<MovieDetailsPage />} />
       </Routes>
     </section>
   );

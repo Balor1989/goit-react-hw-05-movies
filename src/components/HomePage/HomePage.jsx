@@ -15,7 +15,7 @@ const HomePage = () => {
       <HTag title="Trending Today" />
       <ul>
         {popularMovies &&
-          popularMovies.map(movie => (
+          popularMovies.results.map(movie => (
             <li key={movie.id}>
               <Link to={`/movies/${movie.id}`}>
                 <img

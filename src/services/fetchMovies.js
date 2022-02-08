@@ -9,7 +9,7 @@ async function fetchMovies(url) {
     Loading.pulse();
 
     const response = await axios.get(url);
-    const movies = await response.data.results;
+    const movies = await response.data;
     Loading.remove();
     return movies;
   } catch (error) {
@@ -24,5 +24,12 @@ async function fetchMovies(url) {
 export function fetchPopularMovies() {
   return fetchMovies(
     `https://api.themoviedb.org/3/trending/movie/day?page=1&api_key=${API_KEY}`,
+  );
+}
+
+export function fetchMovieDetails(movieId) {
+  const id = movieId;
+  return fetchMovies(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
   );
 }
