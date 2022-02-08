@@ -1,7 +1,7 @@
 // import s from './HomePage.module.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import fetchPopularMovies from '../../services/fetchPopularMovies';
+import { fetchPopularMovies } from '../../services/fetchMovies';
 import HTag from '../HTag';
 
 const HomePage = () => {
