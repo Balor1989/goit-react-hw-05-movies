@@ -20,7 +20,7 @@ const MovieDetailsPage = () => {
   }, [id]);
 
   const onClickGoBackButon = () => {
-    navigate(location?.state?.from || '/movies');
+    navigate(location?.state?.from || '/');
   };
 
   return (

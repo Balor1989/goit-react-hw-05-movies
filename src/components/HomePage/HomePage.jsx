@@ -2,7 +2,7 @@ import s from './HomePage.module.css';
 import { useEffect, useState } from 'react';
 import { fetchPopularMovies } from '../../services/fetchMovies';
 import HTag from '../HTag';
-import MoviesList from '../MoviesList';
+import MoviesList from '../MoviesList/MoviesList';
 
 const HomePage = () => {
   const [popularMovies, setPopularMovies] = useState(null);
