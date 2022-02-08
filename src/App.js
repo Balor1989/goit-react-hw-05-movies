@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import HTag from './components/HTag';
 import MovieDetailsPage from './components/MovieDetailsPage';
+import Cast from './components/Cast/Cast';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route path="/movies" element={<HTag title="Search movies" />} />
         <Route path="/movies/:id" element={<MovieDetailsPage />}>
-          <Route path="/movies/:id/cast" element={<HTag title="Cast" />} />
+          <Route path="/movies/:id/cast" element={<Cast />} />
           <Route
             path="/movies/:id/reviews"
             element={<HTag title="Reviews" />}

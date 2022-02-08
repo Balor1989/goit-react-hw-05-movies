@@ -33,3 +33,9 @@ export function fetchMovieDetails(movieId) {
     `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
   );
 }
+
+export function fetchMovieCast(movieId) {
+  return fetchMovies(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`,
+  );
+}
