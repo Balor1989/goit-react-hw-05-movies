@@ -1,20 +1,34 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import {
+  useParams,
+  Link,
+  Outlet,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../services/fetchMovies';
 import HTag from '../HTag';
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
     fetchMovieDetails(id).then(setMovieDetails);
   }, [id]);
 
+  const onClickGoBackButon = () => {
+    navigate(location?.state?.from || '/movies');
+  };
+
   return (
     movieDetails && (
       <>
-        <button>Go Back</button>
+        <button type="butoon" onClick={onClickGoBackButon}>
+          Go Back
+        </button>
         <img
           src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
           alt=""
