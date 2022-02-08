@@ -6,18 +6,16 @@ import HTag from './components/HTag';
 import Cast from './components/Cast/Cast';
 
 const HomePage = lazy(() =>
-  import(
-    './components/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */
-  ),
+  import('./views/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */),
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    './components/MovieDetailsPage/MovieDetailsPage.jsx' /* webpackChunkName: "movies-detail" */
+    './views/MovieDetailsPage/MovieDetailsPage.jsx' /* webpackChunkName: "movies-detail" */
   ),
 );
 const MoviesPage = lazy(() =>
   import(
-    './components/MoviesPage/MoviesPage.jsx' /* webpackChunkName: "movies-page" */
+    './views/MoviesPage/MoviesPage.jsx' /* webpackChunkName: "movies-page" */
   ),
 );
 

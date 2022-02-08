@@ -1,8 +1,8 @@
 import s from './HomePage.module.css';
 import { useEffect, useState } from 'react';
 import { fetchPopularMovies } from '../../services/fetchMovies';
-import HTag from '../HTag';
-import MoviesList from '../MoviesList/MoviesList';
+import HTag from '../../components/HTag';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 const HomePage = () => {
   const [popularMovies, setPopularMovies] = useState(null);

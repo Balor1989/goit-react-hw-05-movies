@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../services/fetchMovies';
-import HTag from '../HTag';
+import HTag from '../../components/HTag';
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
