@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HTag from './components/HTag';
+import Cast from './components/Cast/Cast';
 
 const HomePage = lazy(() =>
   import(
@@ -13,9 +14,6 @@ const MovieDetailsPage = lazy(() =>
   import(
     './components/MovieDetailsPage/MovieDetailsPage.jsx' /* webpackChunkName: "movies-detail" */
   ),
-);
-const Cast = lazy(() =>
-  import('./components/Cast/Cast.jsx' /* webpackChunkName: "cast" */),
 );
 const MoviesPage = lazy(() =>
   import(
