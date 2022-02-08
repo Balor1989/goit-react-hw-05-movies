@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/movies" element={<HTag title="Search movies" />} />
+        <Route path="/movies/:id" element={<HTag title="Film details" />} />
       </Routes>
     </section>
   );
