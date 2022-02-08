@@ -1,3 +1,4 @@
+import s from './MovieDetailsPage.module.css';
 import {
   useParams,
   Link,
@@ -7,6 +8,8 @@ import {
 } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../services/fetchMovies';
+import { GoArrowLeft } from 'react-icons/go';
+import { IconContext } from 'react-icons';
 import HTag from '../../components/HTag';
 
 const MovieDetailsPage = () => {
@@ -27,6 +30,9 @@ const MovieDetailsPage = () => {
     movieDetails && (
       <>
         <button type="butoon" onClick={onClickGoBackButon}>
+          <IconContext.Provider value={`${s.searchIcon}`}>
+            <GoArrowLeft />
+          </IconContext.Provider>
           Go Back
         </button>
         <img
