@@ -27,6 +27,7 @@ const MovieDetailsPage = () => {
             <p>{`User Score: ${movieDetails.vote_average * 10}%`}</p>
             <HTag title="Overview" />
             <p>{movieDetails.overview}</p>
+            <h3>Genres</h3>
             <p>
               {movieDetails.genres.map(genre => (
                 <span key={genre.id}>{genre.name}</span>
