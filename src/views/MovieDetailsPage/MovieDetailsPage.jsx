@@ -1,4 +1,4 @@
-// import s from './MovieDetailsPage.module.css';
+import s from './MovieDetailsPage.module.css';
 import {
   useParams,
   Link,
@@ -6,10 +6,10 @@ import {
   useNavigate,
   useLocation,
 } from 'react-router-dom';
+import { IconContext } from 'react-icons';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../services/fetchMovies';
 import { GoArrowLeft } from 'react-icons/go';
-import HTag from '../../components/HTag';
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -27,46 +27,64 @@ const MovieDetailsPage = () => {
 
   return (
     movieDetails && (
-      <>
-        <button type="butoon" onClick={onClickGoBackButon}>
-          <GoArrowLeft />
-          Go Back
-        </button>
-        <img
-          src={
-            movieDetails.poster_path
-              ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`
-              : `https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496_1280.png`
-          }
-          alt={movieDetails.original_title}
-        />
-        <div>
-          <div>
-            <HTag title={movieDetails.original_title} />
-            <p>{`User Score: ${movieDetails.vote_average * 10}%`}</p>
-            <HTag title="Overview" />
-            <p>{movieDetails.overview}</p>
-            <h3>Genres</h3>
+      <section className={s.movieDetails}>
+        <div className={s.buttonBox}>
+          <button
+            type="butoon"
+            onClick={onClickGoBackButon}
+            className={s.goBackButton}
+          >
+            <IconContext.Provider value={{ className: `${s.searchIcon}` }}>
+              <GoArrowLeft />
+            </IconContext.Provider>
+            Go Back
+          </button>
+        </div>
+        <div className={s.movieBox}>
+          <div className={s.imageBox}>
+            <img
+              src={
+                movieDetails.poster_path
+                  ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`
+                  : `https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496_1280.png`
+              }
+              alt={movieDetails.original_title}
+            />
+          </div>
+          <div className={s.infoBox}>
+            <h1 className={s.title}>{movieDetails.original_title} </h1>
+            <p className={s.userScore}>{`User Score: ${
+              movieDetails.vote_average * 10
+            }%`}</p>
+            <h2 className={s.overview}>Overview</h2>
+            <p className={s.overviewDescription}>{movieDetails.overview}</p>
+            <h3 className={s.genres}>Genres</h3>
             <p>
               {movieDetails.genres.map(genre => (
-                <span key={genre.id}>{genre.name}</span>
+                <span key={genre.id} className={s.genreItem}>
+                  {genre.name}
+                </span>
               ))}
             </p>
           </div>
-          <div>
-            <h3>Additional information</h3>
-            <ul>
-              <li>
-                <Link to="cast">Cast</Link>
-              </li>
-              <li>
-                <Link to="reviews">Reviews</Link>
-              </li>
-            </ul>
-            <Outlet />
-          </div>
         </div>
-      </>
+        <div>
+          <h3 className={s.additInfo}>Additional information</h3>
+          <ul className={s.linkList}>
+            <li>
+              <Link className={s.link} to="cast">
+                Cast
+              </Link>
+            </li>
+            <li>
+              <Link className={s.link} to="reviews">
+                Reviews
+              </Link>
+            </li>
+          </ul>
+          <Outlet />
+        </div>
+      </section>
     )
   );
 };
