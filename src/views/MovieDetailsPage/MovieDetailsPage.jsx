@@ -49,6 +49,7 @@ const MovieDetailsPage = () => {
                   : `https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496_1280.png`
               }
               alt={movieDetails.original_title}
+              width="300"
             />
           </div>
           <div className={s.infoBox}>

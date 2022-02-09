@@ -20,8 +20,7 @@ const MoviesPage = () => {
       toast.warn('Please, enter movie name');
       return;
     }
-    fetchSearchMovies(query).then(setSearchMovies);
-    setQuery('');
+    fetchSearchMovies(query).then().then(setSearchMovies);
   };
 
   return (
@@ -43,6 +42,9 @@ const MoviesPage = () => {
         </form>
       </section>
       <section>
+        {searchMovies && searchMovies.total_results === 0 && (
+          <h2>There are no movies matching your search</h2>
+        )}
         {searchMovies && <MoviesList response={searchMovies} />}
       </section>
     </>
