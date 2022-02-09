@@ -40,6 +40,12 @@ export function fetchMovieCast(movieId) {
   );
 }
 
+export function fetchMovieReviews(movieId) {
+  return fetchMovies(
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`,
+  );
+}
+
 export function fetchSearchMovies(query) {
   return fetchMovies(
     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`,

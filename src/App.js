@@ -3,8 +3,8 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import { ToastContainer } from 'react-toastify';
-import HTag from './components/HTag';
 import Cast from './components/Cast/Cast';
+import Reviews from './components/Reviews/Reviews';
 
 const HomePage = lazy(() =>
   import('./views/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */),
@@ -31,10 +31,7 @@ function App() {
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movies/:id" element={<MovieDetailsPage />}>
             <Route path="/movies/:id/cast" element={<Cast />} />
-            <Route
-              path="/movies/:id/reviews"
-              element={<HTag title="Reviews" />}
-            />
+            <Route path="/movies/:id/reviews" element={<Reviews />} />
           </Route>
         </Routes>
       </Suspense>
