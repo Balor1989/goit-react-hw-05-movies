@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchMovieCast } from '../../services/fetchMovies';
+import s from './Cast.module.css';
 
 const Cast = () => {
   const { id } = useParams();
@@ -15,10 +16,10 @@ const Cast = () => {
       {cast && cast.cast.length === 0 && (
         <p>We don't have any cast for this movie</p>
       )}
-      <ul>
+      <ul className={s.cardList}>
         {cast &&
           cast.cast.map(item => (
-            <li key={item.credit_id}>
+            <li key={item.credit_id} className={s.movieCard}>
               <img
                 src={
                   item.profile_path
