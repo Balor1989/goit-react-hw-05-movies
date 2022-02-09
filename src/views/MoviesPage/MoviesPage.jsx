@@ -1,10 +1,10 @@
-import HTag from '../../components/HTag';
 import MoviesList from '../../components/MoviesList';
 import s from './MoviesPage.module.css';
 import { GoSearch } from 'react-icons/go';
 import { useState } from 'react';
 import { fetchSearchMovies } from '../../services/fetchMovies';
 import { toast } from 'react-toastify';
+import { IconContext } from 'react-icons';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MoviesPage = () => {
@@ -27,20 +27,20 @@ const MoviesPage = () => {
   return (
     <>
       <section className={s.moviePage}>
-        <HTag title="Search movies" />
-        <div>
-          <form onSubmit={onQuerySubmit}>
-            <input
-              type="text"
-              placeholder="Search..."
-              value={query}
-              onChange={onHandleChange}
-            />
-            <button type="submit">
+        <form onSubmit={onQuerySubmit} className={s.searchForm}>
+          <input
+            className={s.inputQuery}
+            type="text"
+            placeholder="Search..."
+            value={query}
+            onChange={onHandleChange}
+          />
+          <button type="submit" className={s.searchButton}>
+            <IconContext.Provider value={{ className: `${s.searchIcon}` }}>
               <GoSearch />
-            </button>
-          </form>
-        </div>
+            </IconContext.Provider>
+          </button>
+        </form>
       </section>
       <section>
         {searchMovies && <MoviesList response={searchMovies} />}

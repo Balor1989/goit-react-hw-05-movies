@@ -10,17 +10,21 @@ const Reviews = () => {
     fetchMovieReviews(id).then(setReviews);
   }, [id]);
 
-  console.log(reviews);
   return (
-    <ul>
-      {reviews &&
-        reviews.results.map(review => (
-          <li key={review.id}>
-            <h3>{review.author}</h3>
-            <p>{review.content}</p>
-          </li>
-        ))}
-    </ul>
+    <>
+      {reviews && reviews.total_results === 0 && (
+        <p>We don't have any reviews for this movie</p>
+      )}
+      <ul>
+        {reviews &&
+          reviews.results.map(review => (
+            <li key={review.id}>
+              <h3>{review.author}</h3>
+              <p>{review.content}</p>
+            </li>
+          ))}
+      </ul>
+    </>
   );
 };
 
