@@ -7,7 +7,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { fetchMovieDetails } from '../../services/fetchMovies';
 import { GoArrowLeft } from 'react-icons/go';
 
@@ -16,13 +16,14 @@ const MovieDetailsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
+  const locationHistory = useRef(location);
 
   useEffect(() => {
     fetchMovieDetails(id).then(setMovieDetails);
   }, [id]);
 
   const onClickGoBackButon = () => {
-    navigate(location?.state?.from || '/');
+    navigate(locationHistory?.current?.state?.from || '/');
   };
 
   return (
@@ -73,7 +74,7 @@ const MovieDetailsPage = () => {
           <h3 className={s.additInfo}>Additional information</h3>
           <ul className={s.linkList}>
             <li>
-              <Link className={s.link} to="cast">
+              <Link className={s.link} to="cast" location={location}>
                 Cast
               </Link>
             </li>
@@ -83,7 +84,7 @@ const MovieDetailsPage = () => {
               </Link>
             </li>
           </ul>
-          <Outlet />
+          <Outlet location={location} />
         </div>
       </section>
     )
